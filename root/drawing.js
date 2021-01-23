@@ -41,7 +41,7 @@ canvas.addEventListener("mousedown", function(e){
     setTimeout(function (){
       ctx.lineTo(e.x,e.y);
       ctx.stroke();
-    } , 1000);
+    } , 50);
     
   }
 });
