@@ -1,4 +1,6 @@
 $(document).ready(hideElem("button"));
+var xs = [0];
+var ys = [0];
 var progressbarVal = 0
 function fun(){
   let  x = document.getElementById('textelem');
@@ -36,16 +38,23 @@ var canvas = document.getElementById("myCanvas");
 canvas.addEventListener("mousedown", function(e){
   canvas.onmousemove= function(e){
     var ctx = canvas.getContext("2d");
+    ctx.lineWidth = '10';
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
     ctx.beginPath();
     ctx.moveTo(e.x,e.y); 
+    xs.push(e.x);
+    ys.push(e.y);
     setTimeout(function (){
       ctx.lineTo(e.x,e.y);
+      ctx.closePath();
       ctx.stroke();
-    } , 50);
+      xs.push(e.x);
+      ys.push(e.y);
+    } , 60);
     
   }
-});
-
+}); 
 canvas.addEventListener("mouseup", function(e){
   canvas.onmousemove=null;
 })
