@@ -51,6 +51,9 @@ canvas.addEventListener("mousedown", function(e){
       xs.push(e.x);
       ys.push(e.y);
     } , 60);
+    setTimeout(function (){
+      ctx.stroke();
+    } , 100);
     
   }
 }); 
